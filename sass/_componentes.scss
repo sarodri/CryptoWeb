@@ -1,0 +1,126 @@
+@mixin btn-modify-s {
+    font-size: 0.75rem;
+    padding: 0.1rem 1rem;
+}
+
+@mixin display {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+@mixin btn-base {
+    padding: 0.25rem 1.5rem;
+    border-radius: 0.25rem;
+}
+
+$color-main: #0075FF;
+$color-footer: #F4F7FE;
+
+.btn-main{
+    @include btn-base();
+    color: white;
+    background-color: #0075FF;
+    border: solid 1px $color-main;
+
+    &:hover{
+        background-color: white;
+        color: $color-main;
+    }
+
+    &-s{
+        @extend .btn-main;
+        @include btn-modify-s();
+    }
+}
+
+.btn-sec{
+    @include btn-base();
+    color: black;
+    background-color: transparent;
+    border: none;
+
+    &:hover{
+        color: #888;
+    }
+
+    &-s{
+        @extend .btn-sec;
+        @include btn-modify-s();
+    }
+}
+
+.main-menu{
+
+    margin-bottom: 0;
+    li{
+        display: inline;
+        font-size: 0.75rem;
+        list-style: none;
+        margin-right: 1rem;;
+        a{
+            color: #000;
+            text-decoration: none;
+            &:hover{
+                text-decoration: underline;
+            }
+        }
+    }
+}
+
+.icon-sm{
+
+    i{
+        font-size: 0.75rem;
+        color: $color-main;
+        padding: 0.2rem 0.3rem;
+        border-radius: 50%;
+        box-shadow: 0 0 10px #00000055;
+        margin: 0.75rem;
+    }
+}
+
+.benefit{
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+
+    i{
+        color: $color-main;
+        font-size: 6rem;
+    }
+    .description{
+        
+        .tittle{
+            font-size: 1rem;
+        }
+        .text{
+            color: #888;
+            font-weight: 600;
+            font-size: 0.8rem;
+        }
+    }
+
+    .cta{
+        color: $color-main;
+        font-weight: 600;
+        font-size: 0.9rem;
+        margin-top: 3rem;
+    }
+}
+.icon-desc{
+    @include display();
+
+
+    .icon{
+        color: $color-main;
+        font-size: 8rem;
+        padding: 0;
+    }
+    .tittle{
+        font-size: 1.2rem;
+        font-weight: 600;
+        margin-top: -1.5rem;
+    }
+}

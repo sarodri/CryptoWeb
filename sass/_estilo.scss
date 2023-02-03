@@ -1,0 +1,223 @@
+@use "componentes";
+
+@mixin sec-display {
+    max-width: 992px;
+    width: 100%;
+    padding: 5rem;
+    margin: auto;
+}
+
+html{
+    min-width: 100vw;
+}
+
+body{   
+    min-height: 100%;
+    max-width: 100vw;
+    margin: 0;
+    padding: 0;
+}
+
+.nav{
+    display: flex;
+    justify-content: space-around;
+    align-items:center;
+    width: 100%;
+    height: 3rem;
+    border-bottom: solid 1px rgb(197, 193, 193);
+}
+
+.logo img{
+    max-width: 7rem;
+}
+
+.sec-home{
+    @include sec-display();
+    display: flex;
+    
+    align-items:center;
+    .home-cta{
+        flex: 1;
+
+        .cta-text{
+            color: $color-main;
+            font-size: 0.75rem;
+        }
+        .home-description{
+            max-width: 300px;
+        }
+        .home-text{
+            font-size: 3rem;
+            max-width: 300px;
+        }
+        .lead-magnet{
+            .input-col{
+                max-width: 300px;
+            }
+        }
+    }
+}
+
+
+.sec-features{
+    @include sec-display();
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+    .intro{
+        text-align: center;
+
+        h3{
+            font-size: 2rem;
+        }
+        p{
+            font-size: 1rem;
+            color:#888;
+        }
+    }
+    .features{
+        display: flex;
+        gap: 1rem;
+        align-items: center;
+        .text{
+            flex: 1;
+            padding:2rem 0;
+            .feature{
+                display: flex;
+                flex-direction: row;
+                align-items: center;  
+                .description{
+                    margin-left: 1rem ;
+                    .tittle{
+                        font-size: 1rem;
+                    }
+                    .description-text{
+                        font-size: 0.8rem;
+                    }
+                }
+            }   
+        }
+        .image{
+            max-width: 60%;
+            .img{
+                max-width: 100%;
+            }
+        
+        }
+    }
+}
+
+.sec-benefits{
+    @extend .sec-features, .intro;
+    .benefit-card{
+        width: 100%;
+    }
+}
+
+.sec-kpis{
+    background-color: $color-main;
+    color: white;
+    padding: 4rem;
+    width: 100%;
+
+    .kpi{
+        display: flex;
+        flex-direction: column;
+        text-align: center;
+
+        .number{
+            font-size: 3.5rem;
+            font-weight: 600;
+        }
+
+        .desc{
+            font-size: 1rem;
+            color: #ffffffaa;
+        }
+    }
+}
+
+.sec-onboarding{
+    @extend .sec-features, .intro;
+    width: 100%; 
+    .steps{
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        padding: 0 6rem 5rem 6rem ;
+
+        .step-separator{
+            flex: 1;
+            border-top: solid 3px rgb(154, 153, 153);
+            margin: 0 1rem;
+        }
+    }
+}
+
+.sec-footer-cta{
+    background-color: $color-footer;
+    background-image: url(../assets/img/bg\ 1.png);
+    background-repeat: no-repeat;
+    background-position: 100%;
+    padding: 5rem;
+    .footer-cta{
+        width: 50%;
+        .cta-tittle{
+        font-size: 2rem;
+        }
+        .cta-text{
+            font-size: 0.9rem;
+            color: #888;
+        }
+    }
+}
+
+@media (max-width:768px){
+    
+    
+    .sec-home{
+        padding: 1rem;
+        flex-direction: column;
+       
+        .home-cta{
+            width: 100%;
+            display: flex;
+            flex-direction: column;
+            text-align: center;
+            align-items: center;
+        }
+        .lead-magnet{
+            display: flex;
+            flex-direction: column;
+            margin-top: 1rem;
+            .btn-main{
+                margin-top: 1rem;
+            }
+        }
+    }
+
+    .sec-benefits{
+        padding: 1rem;
+    }
+
+    .sec-features{
+        padding: 1rem;
+    }
+    .sec-onboarding{
+        padding: 1rem;
+        .steps{
+            flex-direction: column;
+            .icon-desc{
+                .tittle{
+                    text-align: center;
+                }
+            }
+        }
+    }
+    .sec-footer-cta{
+        .footer-cta{
+            width: auto;
+        }
+    }
+}
